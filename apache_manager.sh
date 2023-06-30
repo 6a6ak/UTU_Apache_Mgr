@@ -1,6 +1,7 @@
 #!/bin/bash
 f35b04
 while true; do
+    clear
 
 
 text="\e[1m                    Apache Manager                \e[0m"
@@ -13,7 +14,6 @@ padding=$((($width - ${#text}) ))
 echo -ne "${color}${text}\033[0m\n"
 
 
-    clear
     echo "Apache Control Script"
     echo "====================="
     echo "1. Start Apache"
