@@ -23,7 +23,7 @@ echo "  6. Enable Site          "
 echo "  7. Disable Site         "
 echo "  0. Exit                 "
 echo "==========================================="
-echo -n "Enter your choice: "
+echo -n "  Enter your choice: "
 read choice
 
 
