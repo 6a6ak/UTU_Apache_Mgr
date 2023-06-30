@@ -4,7 +4,7 @@ while true; do
     clear
 
 
-text="\e[1m                    Apache Manager                \e[0m"
+text="\e[1m                 Apache Manager            \e[0m"
 footer="\e[1m                                                \e[0m"
 #color="\e[44m"
 color="\e[48;2;243;91;4m"
@@ -13,20 +13,19 @@ padding=$((($width - ${#text}) ))
 #tput cup 2 $padding
 echo -ne "${color}${text}\033[0m\n"
 
+echo "==========================================="
+echo "  1. Start Apache         "
+echo "  2. Stop Apache          "             
+echo "  3. Restart Apache       "
+echo "  4. Reload Apache        "      
+echo "  5. Check Apache Status  "
+echo "  6. Enable Site          "
+echo "  7. Disable Site         "
+echo "  0. Exit                 "
+echo "==========================================="
+echo -n "Enter your choice: "
+read choice
 
-    echo "Apache Control Script"
-    echo "====================="
-    echo "1. Start Apache"
-    echo "2. Stop Apache"
-    echo "3. Restart Apache"
-    echo "4. Reload Apache"
-    echo "5. Check Apache Status"
-    echo "6. Enable Site"
-    echo "7. Disable Site"
-    echo "0. Exit"
-    echo "====================="
-    echo -n "Enter your choice: "
-    read choice
 
     case $choice in
         1)  echo "Starting Apache..."
