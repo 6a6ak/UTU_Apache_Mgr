@@ -42,14 +42,18 @@ while true; do
             read -p "Press any key to continue..."
             ;;
 
-        6)  echo -n "Enter the site name to enable: "
+        6)  echo "Available sites:"
+            ls /etc/apache2/sites-available
+            echo -n "Enter the site name to enable: "
             read site
             sudo a2ensite $site
             sudo systemctl reload apache2
             read -p "Press any key to continue..."
             ;;
 
-        7)  echo -n "Enter the site name to disable: "
+        7)  echo "Enabled sites:"
+            ls /etc/apache2/sites-enabled
+            echo -n "Enter the site name to disable: "
             read site
             sudo a2dissite $site
             sudo systemctl reload apache2
