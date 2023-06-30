@@ -1,6 +1,18 @@
 #!/bin/bash
-
+f35b04
 while true; do
+
+
+text="\e[1m                    Apache Manager                \e[0m"
+footer="\e[1m                                                \e[0m"
+#color="\e[44m"
+color="\e[48;2;243;91;4m"
+width=$(tput cols)
+padding=$((($width - ${#text}) ))
+#tput cup 2 $padding
+echo -ne "${color}${text}\033[0m\n"
+
+
     clear
     echo "Apache Control Script"
     echo "====================="
