@@ -6,21 +6,20 @@ while true; do
 
 text="\e[1m                 Apache Manager            \e[0m"
 footer="\e[1m                                                \e[0m"
-#color="\e[44m"
 color="\e[48;2;243;91;4m"
 width=$(tput cols)
 padding=$((($width - ${#text}) ))
-#tput cup 2 $padding
 echo -ne "${color}${text}\033[0m\n"
 
 echo "==========================================="
-echo "  1. Start Apache         "
-echo "  2. Stop Apache          "             
-echo "  3. Restart Apache       "
-echo "  4. Reload Apache        "      
-echo "  5. Check Apache Status  "
-echo "  6. Enable Site          "
-echo "  7. Disable Site         "
+echo "  1. Install Apache       "
+echo "  2. Start Apache         "
+echo "  3. Stop Apache          "             
+echo "  4. Restart Apache       "
+echo "  5. Reload Apache        "      
+echo "  6. Check Apache Status  "
+echo "  7. Enable Site          "
+echo "  8. Disable Site         "
 echo "  0. Exit                 "
 echo "==========================================="
 echo -n "  Enter your choice: "
@@ -28,32 +27,38 @@ read choice
 
 
     case $choice in
-        1)  echo "Starting Apache..."
+        1)  echo "Installing Apache..."
+            sudo apt update
+            sudo apt install apache2
+            read -p "Press any key to continue..."
+            ;;
+
+        2)  echo "Starting Apache..."
             sudo systemctl start apache2
             read -p "Press any key to continue..."
             ;;
 
-        2)  echo "Stopping Apache..."
+        3)  echo "Stopping Apache..."
             sudo systemctl stop apache2
             read -p "Press any key to continue..."
             ;;
 
-        3)  echo "Restarting Apache..."
+        4)  echo "Restarting Apache..."
             sudo systemctl restart apache2
             read -p "Press any key to continue..."
             ;;
 
-        4)  echo "Reloading Apache..."
+        5)  echo "Reloading Apache..."
             sudo systemctl reload apache2
             read -p "Press any key to continue..."
             ;;
 
-        5)  echo "Apache Status:"
+        6)  echo "Apache Status:"
             sudo systemctl status apache2
             read -p "Press any key to continue..."
             ;;
 
-        6)  echo "Available sites:"
+        7)  echo "Available sites:"
             ls /etc/apache2/sites-available
             echo -n "Enter the site name to enable: "
             read site
@@ -62,7 +67,7 @@ read choice
             read -p "Press any key to continue..."
             ;;
 
-        7)  echo "Enabled sites:"
+        8)  echo "Enabled sites:"
             ls /etc/apache2/sites-enabled
             echo -n "Enter the site name to disable: "
             read site
